@@ -1,0 +1,1029 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="http://docs.codeoverflow.org/development/Writing-a-plugin/">
+      
+      
+        <meta name="author" content="codeoverflow.org">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Writing a plugin - ChatOverflow Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/dark-theme.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/custom-header.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#create-a-new-plugin-project" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://docs.codeoverflow.org/" title="ChatOverflow Wiki" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              ChatOverflow Wiki
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Writing a plugin
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/codeoverflow-org/chatoverflow/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    codeoverflow-org/chatoverflow
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../usage/Installation/" class="md-tabs__link">
+          Usage
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../Setting-up-the-Build-Environment/" class="md-tabs__link md-tabs__link--active">
+          Development
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../services/Twitch-Chat/" class="md-tabs__link">
+          Services
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="/chatoverflow-gh-pages/code/chatoverflow/org/codeoverflow/chatoverflow/" class="md-tabs__link">
+          Framework Scaladoc
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="/chatoverflow-gh-pages/code/chatoverflow-api/?help-doc.html" class="md-tabs__link">
+          API Javadoc
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="http://docs.codeoverflow.org/" title="ChatOverflow Wiki" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    ChatOverflow Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/codeoverflow-org/chatoverflow/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    codeoverflow-org/chatoverflow
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Usage
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Usage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../usage/Installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../usage/Using-the-GUI/" title="Using the GUI" class="md-nav__link">
+      Using the GUI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../usage/Using-Parameters/" title="Using Parameters" class="md-nav__link">
+      Using Parameters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../usage/Using-the-CLI/" title="Using the CLI" class="md-nav__link">
+      Using the CLI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../usage/Frequent-Issues/" title="Frequent Issues" class="md-nav__link">
+      Frequent Issues
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Development
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Development
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Setting-up-the-Build-Environment/" title="Build Environment" class="md-nav__link">
+      Build Environment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Writing a plugin
+      </label>
+    
+    <a href="./" title="Writing a plugin" class="md-nav__link md-nav__link--active">
+      Writing a plugin
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-plugin-project" class="md-nav__link">
+    Create a new plugin project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-the-pluginxml-file" class="md-nav__link">
+    Inspect the plugin.xml file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extend-the-plugin-with-own-logic" class="md-nav__link">
+    Extend the Plugin with own logic
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Pluggable-migration-guide/" title="Pluggable migration guide" class="md-nav__link">
+      Pluggable migration guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Adding-a-new-platform-source/" title="Adding a new platform source" class="md-nav__link">
+      Adding a new platform source
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Structure/" title="Structure" class="md-nav__link">
+      Structure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Deploy-ChatOverflow/" title="Deploy ChatOverflow" class="md-nav__link">
+      Deploy ChatOverflow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Working-with-NPM/" title="Working with NPM" class="md-nav__link">
+      Working with NPM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Versioning/" title="Versioning" class="md-nav__link">
+      Versioning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Release-ChatOverflow/" title="Releasing" class="md-nav__link">
+      Releasing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Services
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Services
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../services/Twitch-Chat/" title="Twitch Chat" class="md-nav__link">
+      Twitch Chat
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../services/Discord/" title="Discord" class="md-nav__link">
+      Discord
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../services/Serial/" title="Serial Port (Arduino)" class="md-nav__link">
+      Serial Port (Arduino)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../services/TipeeeStream/" title="TipeeeStream" class="md-nav__link">
+      TipeeeStream
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../services/StreamElements/" title="StreamElements" class="md-nav__link">
+      StreamElements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../services/File/" title="File" class="md-nav__link">
+      File
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../services/RCON/" title="RCON" class="md-nav__link">
+      RCON
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../services/Sample/" title="Sample" class="md-nav__link">
+      Sample
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Framework Scaladoc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Framework Scaladoc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="/chatoverflow-gh-pages/code/chatoverflow/org/codeoverflow/chatoverflow/" title="Framework Scaladoc" class="md-nav__link">
+      Framework Scaladoc
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      API Javadoc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        API Javadoc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="/chatoverflow-gh-pages/code/chatoverflow-api/?help-doc.html" title="API Javadoc" class="md-nav__link">
+      API Javadoc
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-plugin-project" class="md-nav__link">
+    Create a new plugin project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-the-pluginxml-file" class="md-nav__link">
+    Inspect the plugin.xml file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extend-the-plugin-with-own-logic" class="md-nav__link">
+    Extend the Plugin with own logic
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/codeoverflow-org/chatoverflow-wiki/edit/master/docs/development/Writing-a-plugin.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Writing a plugin</h1>
+                
+                <p><strong>Important: Chat Overflow is still work in progress. So this guide will probably change in the future!</strong></p>
+<p>There are 3 important steps when you want to create and implement a new chat overflow plugin:</p>
+<ol>
+<li>Create a new plugin project with the commands of the framework</li>
+<li>Inspect the <code>plugin.xml</code> file</li>
+<li>Extend the plugin with own logic</li>
+</ol>
+<h2 id="create-a-new-plugin-project">Create a new plugin project<a class="headerlink" href="#create-a-new-plugin-project" title="Permanent link">&para;</a></h2>
+<p>Use the <em>Create Plugin</em> run configuration or start the custom task <code>sbt create</code> directly. Enter the basic plugin information in the command prompt. This includes mandatory values like the name, author, version and base plugin folder (e.g. <code>plugins-public</code>) and some optional values like a description, a website, a link to a source repo, a link to a bug tracker and a license.</p>
+<p>The command creates the folder structure of the new plugin and adds a basic build file. Here you can also add custom dependencies. In addition the command generates a basic <code>plugin.xml</code> containing all the passed information like name and description and a basic source code file generated in the language of your choice to get you started. Note that currently only Scala and Java are supported.</p>
+<p>Next, run the custom task <code>sbt fetch</code> to let the framework look for new plugins and update the plugin reference file <code>plugins.sbt</code>. If you're using IntelliJ, you can now reload the framework manually to register the plugin as a new custom project. You should also run <code>sbt reload</code> (Yes, both actions have different effects although they shouldn't).</p>
+<h2 id="inspect-the-pluginxml-file">Inspect the <code>plugin.xml</code> file<a class="headerlink" href="#inspect-the-pluginxml-file" title="Permanent link">&para;</a></h2>
+<p>All the metadata of the plugin like the name and the author of the plugin is saved in a xml file which is located at <code>src/main/resources/plugin.xml</code> in the plugin directory. This file gets autogenerated by the create command, but in case you need to update a value its good to know where this file is located.</p>
+<p>A simple version of the <code>plugin.xml</code> file might look like this:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">&lt;plugin&gt;</span>
+    <span style="color: #f92672">&lt;name&gt;</span>Demonstration<span style="color: #f92672">&lt;/name&gt;</span>
+    <span style="color: #f92672">&lt;author&gt;</span>sebinside<span style="color: #f92672">&lt;/author&gt;</span>
+    <span style="color: #f92672">&lt;description&gt;</span>This is a simple plugin for demonstration purposes.<span style="color: #f92672">&lt;/description&gt;</span>
+    <span style="color: #f92672">&lt;api&gt;</span>
+        <span style="color: #f92672">&lt;major&gt;</span>3<span style="color: #f92672">&lt;/major&gt;</span>
+        <span style="color: #f92672">&lt;minor&gt;</span>0<span style="color: #f92672">&lt;/minor&gt;</span>
+    <span style="color: #f92672">&lt;/api&gt;</span>
+    <span style="color: #f92672">&lt;version&gt;</span>0.3.0<span style="color: #f92672">&lt;/version&gt;</span>
+    <span style="color: #f92672">&lt;website&gt;</span>http://codeoverflow.org<span style="color: #f92672">&lt;/website&gt;</span>
+    <span style="color: #f92672">&lt;sourceRepo&gt;</span>https://github.com/codeoverflow-org/chatoverflow-plugins<span style="color: #f92672">&lt;/sourceRepo&gt;</span>
+    <span style="color: #f92672">&lt;bugtracker&gt;</span>https://github.com/codeoverflow-org/chatoverflow/issues<span style="color: #f92672">&lt;/bugtracker&gt;</span>
+    <span style="color: #f92672">&lt;license&gt;</span>EPL-2.0<span style="color: #f92672">&lt;/license&gt;</span>
+<span style="color: #f92672">&lt;/plugin&gt;</span>
+</pre></div>
+
+</div>
+<p>The properties called name, author, api versions and version are mandatory and the framework won't load the plugin, if one of these is missing. All others are optional information for the user. If you don't want to specify a value for those you can just omit them.</p>
+<p>The api tag contains the API-Version, which your plugin uses. These are evaluated in the loading process to ensure that your plugin works with the framework version from the user. You can get these numbers either from <code>org.codeoverflow.chatoverflow.api.APIVersion</code> in the api project or in the <code>build.sbt</code> also in the api project.</p>
+<h2 id="extend-the-plugin-with-own-logic">Extend the Plugin with own logic<a class="headerlink" href="#extend-the-plugin-with-own-logic" title="Permanent link">&para;</a></h2>
+<p>The last step is the creation of the plugin class, which contains your own plugin logic. Again the create command has autogenerated a basic class extending <code>org.codeoverflow.chatoverflow.api.plugin.PluginImpl</code> in the language of your choice. Such a file might look like this in case of Scala:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">scala</label>
+<div class="superfences-content"><div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">import</span> <span style="color: #f8f8f2">org.codeoverflow.chatoverflow.api.plugin.</span><span style="color: #f92672">{</span><span style="color: #a6e22e">PluginImpl</span><span style="color: #f92672">,</span> <span style="color: #a6e22e">PluginManager</span><span style="color: #f92672">}</span>
+
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">DemonstrationPlugin</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">manager</span><span style="color: #66d9ef">:</span> <span style="color: #66d9ef">PluginManager</span><span style="color: #f92672">)</span> <span style="color: #66d9ef">extends</span> <span style="color: #a6e22e">PluginImpl</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">manager</span><span style="color: #f92672">)</span> <span style="color: #f92672">{</span>
+
+  <span style="color: #75715e">// require more requirements as needed here</span>
+  <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">val</span> <span style="color: #f8f8f2">sampleReq</span> <span style="color: #66d9ef">=</span> <span style="color: #f8f8f2">require</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">input</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">sample</span><span style="color: #f92672">(</span><span style="color: #e6db74">&quot;sampleReq&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Sample requirement&quot;</span><span style="color: #f92672">,</span> <span style="color: #66d9ef">true</span><span style="color: #f92672">)</span>
+
+  <span style="color: #75715e">// you can adjust the loop interval here</span>
+  <span style="color: #75715e">// loopInterval = 1000;</span>
+
+  <span style="color: #75715e">/**</span>
+<span style="color: #75715e">    * The setup method is executed one, when the plugin is started. Do NOT define your requirements in here!</span>
+<span style="color: #75715e">    */</span>
+  <span style="color: #66d9ef">override</span> <span style="color: #66d9ef">def</span> <span style="color: #f8f8f2">setup</span><span style="color: #f92672">()</span><span style="color: #66d9ef">:</span> <span style="color: #66d9ef">Unit</span> <span style="color: #f92672">=</span> <span style="color: #f92672">{</span>
+    <span style="color: #f8f8f2">log</span><span style="color: #f92672">(</span><span style="color: #e6db74">&quot;Initialized Demonstration!&quot;</span><span style="color: #f92672">)</span>
+  <span style="color: #f92672">}</span>
+
+  <span style="color: #75715e">/**</span>
+<span style="color: #75715e">    * The loop method is executed in loop with a specified interval until the shutdown method is called.</span>
+<span style="color: #75715e">    * The loop method is NOT executed if a negative loop interval is set.</span>
+<span style="color: #75715e">    */</span>
+  <span style="color: #66d9ef">override</span> <span style="color: #66d9ef">def</span> <span style="color: #f8f8f2">loop</span><span style="color: #f92672">()</span><span style="color: #66d9ef">:</span> <span style="color: #66d9ef">Unit</span> <span style="color: #f92672">=</span> <span style="color: #f92672">{</span>
+    <span style="color: #f8f8f2">log</span><span style="color: #f92672">(</span><span style="color: #e6db74">&quot;Demonstration loop!&quot;</span><span style="color: #f92672">)</span>
+  <span style="color: #f92672">}</span>
+
+  <span style="color: #75715e">/**</span>
+<span style="color: #75715e">    * The shutdown method should contain logic to close everything.</span>
+<span style="color: #75715e">    */</span>
+  <span style="color: #66d9ef">override</span> <span style="color: #66d9ef">def</span> <span style="color: #f8f8f2">shutdown</span><span style="color: #f92672">()</span><span style="color: #66d9ef">:</span> <span style="color: #66d9ef">Unit</span> <span style="color: #f92672">=</span> <span style="color: #f92672">{</span>
+    <span style="color: #f8f8f2">log</span><span style="color: #f92672">(</span><span style="color: #e6db74">&quot;Shutting down Demonstration!&quot;</span><span style="color: #f92672">)</span>
+  <span style="color: #f92672">}</span>
+<span style="color: #f92672">}</span>
+</pre></div></div>
+</div>
+</div>
+<p>The framework searches for a class implementing <code>org.codeoverflow.chatoverflow.api.plugin.Plugin</code> when it tries to load a plugin. <code>PluginImpl</code> does this for you and also decreases some other boilerplate. Note that the whole plugin is only allowed to have <em>exactly</em> one class implementing <code>Plugin</code> otherwise the framework won't load your plugin.</p>
+<p>All methods in the generated class are pretty self explaining. The only thing we might need to talk about are <em>Requirements</em>: These are used to retrieve data from the outside world and returning information to it. Basically, you can require everything from a single parameter set by the user to full access to a users livestream chat.</p>
+<p>Thanks to <code>PluginImpl</code> a requirements object is already created, meaning you can start adding requirements right away. Here is a example:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">scala</label>
+<div class="superfences-content"><div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">private</span> <span style="color: #66d9ef">val</span> <span style="color: #f8f8f2">twitchChatInput</span> <span style="color: #66d9ef">=</span> <span style="color: #f8f8f2">require</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">input</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">twitchChat</span><span style="color: #f92672">(</span><span style="color: #e6db74">&quot;reqTwitch&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;A twitch channel&quot;</span><span style="color: #f92672">,</span> <span style="color: #66d9ef">false</span><span style="color: #f92672">)</span>
+<span style="color: #66d9ef">private</span> <span style="color: #66d9ef">val</span> <span style="color: #f8f8f2">nameToSayHelloTo</span> <span style="color: #66d9ef">=</span> <span style="color: #f8f8f2">require</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">parameter</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">(</span><span style="color: #e6db74">&quot;reqHello&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Your name&quot;</span><span style="color: #f92672">,</span> <span style="color: #66d9ef">false</span><span style="color: #f92672">)</span>
+</pre></div></div>
+</div>
+</div>
+<p>This code requires read access to a twitch livestream chat and a parameter ("<em>a name to say hello to"</em>). Note: You can obviously not specify which channel the user might choose - but you can be sure that you will get a working input. The framework takes care of that.</p>
+<p>After this, the last step is the <code>start</code> method. And it is as easy as you might think: Just add your own logic now, using the required parameters of your Requirement object. Here is a short example: This code will simply print out all messages from a twitch chat to the console. To access the chat, use the <code>get()</code> method on the requirement.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="superfences-tabs">
+<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
+<label for="__tab_3_0">scala</label>
+<div class="superfences-content"><div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">twitchChatInput</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">get</span><span style="color: #f92672">().</span><span style="color: #f8f8f2">registerMessageHandler</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">msg</span> <span style="color: #66d9ef">=&gt;</span> <span style="color: #f8f8f2">println</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">msg</span><span style="color: #f92672">))</span>
+</pre></div></div>
+</div>
+</div>
+<p>Of course, you can also add own classes and infrastructure by now - the important steps are done, happy coding!</p>
+<p><em>One last note: If you are testing your plugin for the first time, a full reload might be needed. Use the custom task <code>[Advanced] Full Reload and run ChatOverflow</code> to do so. Afters this, you can configure the framework to start your plugin using the <a href="../../usage/Using-the-CLI/">CLI</a>!</em></p>
+                
+                  
+                
+                
+                  
+                  <hr>
+                  <div class="md-source-date">
+                    <small>
+                      
+                        Last update: January 2, 2020 20:37:42
+                      
+                    </small>
+                  </div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Setting-up-the-Build-Environment/" title="Build Environment" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Build Environment
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Pluggable-migration-guide/" title="Pluggable migration guide" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Pluggable migration guide
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © 2019 codeoverflow.org CC-BY-SA-4.0
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
