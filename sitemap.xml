@@ -1,118 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>http://docs.codeoverflow.org/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/usage/Installation/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/usage/Installation/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/usage/Using-the-GUI/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/usage/Using-the-GUI/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/usage/Using-Parameters/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/usage/Using-Parameters/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/usage/Using-the-CLI/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/usage/Using-the-CLI/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/usage/Frequent-Issues/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/usage/Frequent-Issues/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/development/Setting-up-the-Build-Environment/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/development/Setting-up-the-Build-Environment/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/development/Writing-a-plugin/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/development/Writing-a-plugin/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/development/Pluggable-migration-guide/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/development/Pluggable-migration-guide/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/development/Adding-a-new-platform-source/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/development/Adding-a-new-platform-source/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/development/Structure/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/development/Structure/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/development/Deploy-ChatOverflow/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/development/Deploy-ChatOverflow/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/development/Working-with-NPM/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/development/Working-with-NPM/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/development/Versioning/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/development/Versioning/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/development/Release-ChatOverflow/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/development/Release-ChatOverflow/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/services/Twitch-Chat/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/services/Twitch-Chat/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/services/Discord/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/services/Discord/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/services/Serial/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/services/Serial/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/services/TipeeeStream/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/services/TipeeeStream/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/services/StreamElements/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/services/StreamElements/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/services/File/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/services/File/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/services/RCON/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/services/RCON/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.codeoverflow.org/services/Sample/</loc>
-     <lastmod>2020-01-06</lastmod>
+     <loc>https://docs.codeoverflow.org/services/Sample/</loc>
+     <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
